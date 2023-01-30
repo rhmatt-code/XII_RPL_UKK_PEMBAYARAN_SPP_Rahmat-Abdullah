@@ -1,6 +1,4 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
+@extends('layouts.navbar')
 
-@section('content')
-@include('layouts.navbar')
