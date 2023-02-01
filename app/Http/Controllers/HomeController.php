@@ -8,14 +8,13 @@ use App\Models\Siswa;
 use App\Models\Pembayaran;
 use App\Models\Kelas;
 use App\Models\Spp;
-Use Carbon\Carbon;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
     public function show()
     {
-        $siswa = Siswa::all();
+        $siswa = siswa::all();
         return view('home', compact('siswa'));
     }
-    
 }

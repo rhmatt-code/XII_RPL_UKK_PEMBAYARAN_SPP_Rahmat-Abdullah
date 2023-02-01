@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\OfficerController;
+use App\Http\Controllers\ClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,9 @@ Route::controller(StudentController::class)->group(function () {
 
 Route::controller(OfficerController::class)->group(function () {
     Route::get('officer', 'show');
+});
+
+Route::controller(ClassController::class)->group(function () {
+    Route::get('class', 'show');
+    Route::post('addclass', 'addclass');
 });

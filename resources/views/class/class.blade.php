@@ -5,8 +5,8 @@
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
         <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-            <h5 class="font-bold">Student Data</h5>
-            <a href="#" data-modal-target="add-student" data-modal-toggle="add-student"><p class="text-right font-semibold mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Add data Student</p></a>
+            <h5 class="font-bold">Class Data</h5>
+            <a href="#" data-modal-target="add-student" data-modal-toggle="add-student"><p class="text-right font-semibold mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Add data Class</p></a>
         </caption>
         <div class="relative overflow-x-auto h-auto w-auto ">
             <table class="w-full table-auto text-sm text-left text-gray-500 dark:text-gray-400" id="table">
@@ -63,38 +63,17 @@
                 <span class="sr-only">Close modal</span>
             </button>
             <div class="px-6 py-6 lg:px-8">
-                <h3 class="text-center mb-4 text-xl font-medium text-gray-900 dark:text-white">Add Student Form</h3>
-                <form class="space-y-6" action="#">
+                <h3 class="text-center mb-4 text-xl font-medium text-gray-900 dark:text-white">Add Class Form</h3>
+                <form class="space-y-6" action="addclass" method="POST">
+                    @csrf
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div>
-                        <label for="nisn" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NISN</label>
-                        <input type="text" name="nisn" id="nisn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="1234567891" required>
+                        <label for="nama_kelas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name Class</label>
+                        <input type="text" name="name_class" id="nama_kelas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="10" required>
                     </div>
                     <div>
-                        <label for="nis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIS</label>
-                        <input type="text" name="nis" id="nis" placeholder="00123456789" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Edragon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div>
-                        <label for="countries" class="text-sm font-medium text-gray-900 dark:text-white">Select an Class</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>Choose a country</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                        <input type="text" name="address" id="address" placeholder="" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                    </div>
-                    <div>
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number Phone</label>
-                        <input type="text" name="phone" id="phone" placeholder="083XXXXXXX" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                        <label for="kompetensi_keahlian" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Expertise Competency</label>
+                        <input type="text" name="kompetensi_keahlian" id="kompetensi_keahlian" placeholder="Rekayasa Perangkat Lunak" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                     </div>
                 </div>   
                     <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Student</button>

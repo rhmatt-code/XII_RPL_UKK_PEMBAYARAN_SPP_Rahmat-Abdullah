@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Payment SPP -  @yield('title')</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
 </head>
 <body>
     
