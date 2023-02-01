@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
 {
+    public $timestamps = false;
+    
     use HasFactory;
     protected $fillable = [
         'id_kelas',

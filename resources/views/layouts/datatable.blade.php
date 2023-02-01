@@ -25,10 +25,13 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"></script>
     <script>
+        // FOR DATATBLES PLUGIN
         $(document).ready(function () {
-        $('#table').DataTable(
-        );
+            $('#table').DataTable(
+            );
         });
+
+        // FOR ALERT
     </script>
        
 </body>

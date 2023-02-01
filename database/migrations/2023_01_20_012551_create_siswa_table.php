@@ -18,7 +18,7 @@ return new class extends Migration
             $table->primary('nisn');
             $table->char('nis', 8);
             $table->string('nama', 35);
-            $table->integer('id_kelas');
+            $table->unsignedInteger('id_kelas');
             $table->foreign('id_kelas')->references('id_kelas')->on('kelas');
             $table->text('alamat');
             $table->string('no_telp', 13);

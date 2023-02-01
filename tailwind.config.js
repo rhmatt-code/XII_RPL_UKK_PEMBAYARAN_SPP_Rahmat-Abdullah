@@ -4,6 +4,7 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./resources/**/*.ts",
         "./node_modules/flowbite/**/*.js",
     ],
     theme: {

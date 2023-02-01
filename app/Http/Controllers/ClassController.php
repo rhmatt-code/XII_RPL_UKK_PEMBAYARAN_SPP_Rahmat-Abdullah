@@ -12,27 +12,30 @@ use Carbon\Carbon;
 
 class ClassController extends Controller
 {
+    
+
     public function show(Request $request)
     {
-        $class = Kelas::all();
+        $kelas = kelas::all();
 
 
 
-        return view('class.class', compact('class'));
+        return view('class.class', compact('kelas'));
     }
 
     public function addclass(Request $request)
     {
+        $kelas = kelas::all();
+        $kelas_check = kelas::where('nama_kelas')->first();
+        $jurusan = kelas::where('kompetensi_keahlian')->first();
+        if($kelas_check === null and $jurusan === null){
+            return redirect('class')->with('message', 'Data sudah ada');
+        }else{
+            Kelas::create([
+                'nama_kelas' => $request->nama_kelas,
+                'kompetensi_keahlian' => $request->kompetensi_keahlian,
+            ]);
+        }
 
-        request()->validate([
-            'nama_kelas' => ['required', 'string'],
-            'kompentensi_keahlian' => ['required', 'string'],
-        ]);
-        Kelas::create([
-            'nama_kelas' => $request->id_kelas,
-            'kompetensi_keahlian' => $request->kompetensi_keahlian,
-        ]);
-
-        return redirect('class.class');
     }
 }

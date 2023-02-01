@@ -35,5 +35,5 @@ Route::controller(OfficerController::class)->group(function () {
 
 Route::controller(ClassController::class)->group(function () {
     Route::get('class', 'show');
-    Route::post('addclass', 'addclass');
+    Route::post('class/add', 'addclass')->name('addclass');
 });
