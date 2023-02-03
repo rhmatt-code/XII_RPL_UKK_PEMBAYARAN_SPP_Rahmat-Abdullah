@@ -36,4 +36,5 @@ Route::controller(OfficerController::class)->group(function () {
 Route::controller(ClassController::class)->group(function () {
     Route::get('class', 'show');
     Route::post('class/add', 'addclass')->name('addclass');
+    Route::get('edit/{id}', 'editclass')->name('editclass');
 });

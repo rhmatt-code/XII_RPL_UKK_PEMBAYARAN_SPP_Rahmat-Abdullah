@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Siswa;
 use App\Models\Pembayaran;
 use App\Models\Kelas;
@@ -18,17 +19,21 @@ class ClassController extends Controller
     {
         $kelas = kelas::all();
 
-
-
         return view('class.class', compact('kelas'));
     }
+    public function editclass($id)
+    {
+        $data = DB::table('kelas')->where('id_kelas', $id)->first();
+        return response()->json($data);
+    }
+
 
     public function addclass(Request $request)
     {
         $kelas = kelas::all();
         $nama_kelas = $request->nama_kelas;
         $jurusan = $request->kompetensi_keahlian;
-        if (kelas::where('nama_kelas', $nama_kelas)->exists() and kelas::where('nama_kelas', $nama_kelas)->exists()) {
+        if (kelas::where([['nama_kelas', '=', $nama_kelas], ['kompetensi_keahlian', '=', $jurusan]])->exists()) {
             return redirect('class')->with('message', 'Data sudah ada');
         } else {
             Kelas::create([

@@ -19,6 +19,7 @@
 <body>
     
     <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>		
 	<!--Datatables -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" ></script>
