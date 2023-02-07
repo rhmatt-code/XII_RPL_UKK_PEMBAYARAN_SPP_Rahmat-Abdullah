@@ -21,7 +21,7 @@
         
         <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
             <h5 class="font-bold">Class Data</h5>
-            <a href="#" data-modal-target="add-student" data-modal-toggle="add-student"><p class="text-right font-semibold mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Add data Class</p></a>
+            <a href="#" data-modal-target="add-class" data-modal-toggle="add-class"><p class="text-right font-semibold mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Add data Class</p></a>
         </caption>
         <div class="relative overflow-x-auto h-auto w-auto ">
             <table class="w-full text-sm text-left table text-gray-500 dark:text-gray-400" id="table">
@@ -53,13 +53,20 @@
                         <td class="px-6 py-4">
                             {{$data->kompetensi_keahlian}}
                         </td>
-                        <td class="px-6 py-4 text-left">
-                            <a href="#" data-modal-target="{{$data->id_kelas}}" data-modal-toggle="edit-student" id="editdata" class="viewdetails text-blue-600 dark:text-blue-500 hover:underline">
-                                Edit
-                            </a>|
-                            <a href="#" class=" text-blue-600 dark:text-blue-500 hover:underline">
-                                Delete
+                        <td class="px-6 py-4 text-left flex">
+                            <a href="#" data-modal-target='edit-class{{$data->id_kelas}}' data-modal-toggle="edit-class{{$data->id_kelas}}" data-nama="{{$data->nama_kelas}}" data-jurusan="{{$data->kompetensi_keahlian}}" class="editclass text-red-600 dark:text-blue-500 hover:text-red-900">
+                                <svg fill="currentColor" class="w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"></path>
+                                    <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"></path>
+                                  </svg>
                             </a>
+                            @include('class.edit')
+                            <a href="#" data-modal-taget='delete-modal{{$data->id_kelas}}' data-modal-toggle='delete-modal{{$data->id_kelas}}' class="text-gray-600 dark:text-blue-500 hover:text-gray-900">
+                                <svg fill="currentColor" class="w-8 h-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path clip-rule="evenodd" fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"></path>
+                                  </svg>
+                            </a>
+                            @include('class.delete')
                         </td>
                     </tr>
                     @endforeach
@@ -69,8 +76,8 @@
     </div>
 </div>
 
-{{-- Modal Add Student --}}
-<div id="add-student" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+{{-- Modal Add Class --}}
+<div id="add-class" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-md md:h-auto">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -100,59 +107,9 @@
 </div> 
 {{-------}}
 
-{{-- MODAL EDIT --}}
-<div id="edit-student" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-    <div class="relative w-full h-full max-w-md md:h-auto">
-        {{-- Modal Content --}}
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="edit-student">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div class="px-6 py-6 lg:px-8">
-                <h3 class="text-center mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Kelas</h3>
-                <form class="space-y-6" action="{{route('editclass', $data->id_kelas)}}" method="POST">
-                    @csrf
-                <div class="grid md:grid-cols-2 md:gap-6">
-                    <div>
-                        <label for="edit_kelas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Kelas</label>
-                        <input type="text" name="edit_kelas" id="edit_kelas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="{{$data->nama_kelas}}" required>
-                    </div>
-                    <div>
-                        <label for="edit_keahlian" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kompetensi Keahlian</label>
-                        <input type="text" name="edit_keahlian" id="edit_keahlian" placeholder="{{$data->kompetensi_keahlian}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                </div>   
-                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Student</button>
-                </form>
-            </div>
-        </div>
-    </div>
- </div>
+{{-- MODAL DELETE --}}
+
 
  <!-- Script -->
- <script type='text/javascript'>
-    $(document).ready(function(){
- 
-       $('#table').on('click','.viewdetails',function(){
-           var id =  $(this).attr('data-modal-target');
- 
-           if(id > 0){
- 
-              // AJAX request
-              var url = "{{ route('editclass',[':id']) }}";
-              url = url.replace(':id',id);
 
-              $.ajax({
-                  url: url,
-                  dataType: 'json',
-                  success: function(response){
- 
-                      // Display Modal
-                      $('#edit-class').modal('show'); 
-                  }
-              });
-           }
-       });
- 
-    });
+ </script>

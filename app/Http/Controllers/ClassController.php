@@ -21,10 +21,10 @@ class ClassController extends Controller
 
         return view('class.class', compact('kelas'));
     }
-    public function editclass($id)
+    public function editclass($id_kelas)
     {
-        $data = DB::table('kelas')->where('id_kelas', $id)->first();
-        return response()->json($data);
+        $data = kelas::find($id_kelas);
+        return view('class.edit', compact('data'));
     }
 
 
@@ -43,5 +43,23 @@ class ClassController extends Controller
 
             return redirect('class');
         }
+    }
+
+    public function updateclass(Request $request, $id)
+    {
+        $kelas = kelas::find($id);
+        $kelas->nama_kelas = $request->nama_kelas;
+        $kelas->kompetensi_keahlian = $request->kompetensi_keahlian;
+
+        $kelas->update();
+
+        return redirect('class');
+    }
+
+    public function delete($id)
+    {
+        $kelas = kelas::find($id)->delete();
+
+        return redirect('class');
     }
 }
