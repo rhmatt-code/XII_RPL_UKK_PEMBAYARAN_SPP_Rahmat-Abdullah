@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Kelas;
 
 class Siswa extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = [
         'nisn',
@@ -18,4 +20,8 @@ class Siswa extends Model
         'id_spp',
     ];
     protected $table = "siswa";
+    
+    public function kelas(){
+        return $this->hasMany(Kelas::class);
+    }
 }

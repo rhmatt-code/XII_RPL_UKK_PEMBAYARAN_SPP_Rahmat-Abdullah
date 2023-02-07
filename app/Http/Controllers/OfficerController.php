@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Petugas;
 
 class OfficerController extends Controller
 {
     public function show(){
-        return view('officer.officer');
+        $petugas = Petugas::all();
+
+        return view('officer.officer', compact('petugas'));
     }
 }

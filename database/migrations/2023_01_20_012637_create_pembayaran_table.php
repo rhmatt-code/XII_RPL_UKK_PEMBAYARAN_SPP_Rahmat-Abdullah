@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('tgl_bayar');
             $table->string('bulan_dibayar', 8);
             $table->string('tahun_dibayar', 4);
-            $table->integer('id_spp');
+            $table->unsignedInteger('id_spp');
             $table->foreign('id_spp')->references('id_spp')->on('siswa');
             $table->integer('jumlah_bayar');
         });

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\ClassController;
+use App\Http\Controllers\SppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,12 @@ Route::controller(ClassController::class)->group(function () {
     Route::get('edit/{id_kelas}', 'editclass')->name('editclass');
     Route::post('update/{id_kelas}', 'updateclass')->name('updateclass');
     Route::get('delete/{id_kelas}', 'delete')->name('deleteclass');
+});
+
+Route::controller(SppController::class)->group(function () {
+    Route::get('spp', 'show');
+    Route::post('spp/add', 'add')->name('addspp');
+    Route::get('edit/{id}', 'edit')->name('editspp');
+    Route::post('update/{id}', 'update')->name('updatespp');
+    Route::get('delete/{id}', 'delete')->name('deletespp');
 });
