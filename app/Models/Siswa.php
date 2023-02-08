@@ -13,6 +13,7 @@ class Siswa extends Model
     protected $fillable = [
         'nisn',
         'nis',
+        'nama',
         'id_kelas',
         'id_kelas',
         'alamat',
@@ -20,8 +21,13 @@ class Siswa extends Model
         'id_spp',
     ];
     protected $table = "siswa";
-    
-    public function kelas(){
+
+    public function kelas()
+    {
         return $this->hasMany(Kelas::class);
+    }
+    public function spp()
+    {
+        return $this->hasMany(Spp::class);
     }
 }

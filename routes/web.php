@@ -27,7 +27,8 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::controller(StudentController::class)->group(function () {
-    Route::get('student', 'show');
+    Route::get('siswa', 'show');
+    Route::post('siswa/add', 'add')->name('addsiswa');
 });
 
 Route::controller(OfficerController::class)->group(function () {

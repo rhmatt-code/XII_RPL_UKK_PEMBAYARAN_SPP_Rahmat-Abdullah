@@ -8,14 +8,16 @@ use Laraindo\RupiahFormat;
 
 class SppController extends Controller
 {
-    public function show(){
+    public function show()
+    {
         $spp = Spp::all();
-        
+
 
         return view('spp.spp', compact('spp'));
     }
 
-    public function add(Request $request){
+    public function add(Request $request)
+    {
 
         $spp = Spp::all();
         $tahun = $request->tahun;
@@ -39,19 +41,19 @@ class SppController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $kelas = kelas::find($id);
-        $kelas->nama_kelas = $request->nama_kelas;
-        $kelas->kompetensi_keahlian = $request->kompetensi_keahlian;
+        $kelas = Spp::find($id);
+        $kelas->tahun = $request->tahun;
+        $kelas->nominal = $request->nominal;
 
         $kelas->update();
 
-        return redirect('class');
+        return redirect('spp');
     }
 
     public function delete($id)
     {
-        $kelas = kelas::find($id)->delete();
+        $kelas = Spp::find($id)->delete();
 
-        return redirect('class');
+        return redirect('spp');
     }
 }

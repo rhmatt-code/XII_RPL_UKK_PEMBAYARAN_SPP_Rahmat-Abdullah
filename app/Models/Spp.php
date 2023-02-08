@@ -15,4 +15,8 @@ class Spp extends Model
         'nominal',
     ];
     protected $table = "spp";
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class);
+    }
 }
