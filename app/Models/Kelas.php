@@ -18,8 +18,9 @@ class Kelas extends Model
         'kompetensi_keahlian',
     ];
     protected $table = "kelas";
-    
-     public function siswa(){
-        return $this->belongsTo(Siswa::class);
-     }
+
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class);
+    }
 }

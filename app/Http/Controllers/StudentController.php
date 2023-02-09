@@ -15,7 +15,7 @@ class StudentController extends Controller
 {
     public function show(Request $request)
     {
-        $siswa = Siswa::all();
+        $siswa = Siswa::with('kelas', 'spp')->get();
         $kelas = Kelas::all();
         $spp = Spp::all();
 
@@ -43,5 +43,34 @@ class StudentController extends Controller
 
             return redirect('siswa');
         }
+    }
+
+    public function edit($id)
+    {
+        $siswa = Siswa::find($id);
+        return view('student.edit', compact('siswa'));
+    }
+    public function update(Request $request, $id)
+    {
+        $siswa = Siswa::find($id);
+        $siswa->nisn = $request->nisn;
+        $siswa->nis = $request->nis;
+        $siswa->nama = $request->nama;
+        $siswa->id_kelas = $request->kelas;
+        $siswa->no_telp = $request->no_telp;
+        $siswa->alamat = $request->alamat;
+        $siswa->id_spp = $request->spp;
+
+
+        $siswa->update();
+
+        return redirect('siswa');
+    }
+
+    public function delete($id)
+    {
+        $siswa = Siswa::find($id)->delete();
+
+        return redirect('siswa');
     }
 }

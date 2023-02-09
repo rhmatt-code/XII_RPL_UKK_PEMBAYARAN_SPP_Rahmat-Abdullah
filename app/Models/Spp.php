@@ -17,6 +17,6 @@ class Spp extends Model
     protected $table = "spp";
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class);
+        return $this->hasMany(Siswa::class);
     }
 }

@@ -29,6 +29,9 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(StudentController::class)->group(function () {
     Route::get('siswa', 'show');
     Route::post('siswa/add', 'add')->name('addsiswa');
+    Route::get('siswa/edit/{id}', 'edit')->name('editsiswa');
+    Route::post('siswa/update/{id}', 'update')->name('updatesiswa');
+    Route::get('siswa/delete/{id}', 'delete')->name('deletesiswa');
 });
 
 Route::controller(OfficerController::class)->group(function () {

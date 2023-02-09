@@ -9,12 +9,12 @@ use App\Models\Kelas;
 class Siswa extends Model
 {
     public $timestamps = false;
+    public $primaryKey = 'nisn';
     use HasFactory;
     protected $fillable = [
         'nisn',
         'nis',
         'nama',
-        'id_kelas',
         'id_kelas',
         'alamat',
         'no_telp',
@@ -24,10 +24,10 @@ class Siswa extends Model
 
     public function kelas()
     {
-        return $this->hasMany(Kelas::class);
+        return $this->belongsTo(Kelas::class, "id_kelas");
     }
     public function spp()
     {
-        return $this->hasMany(Spp::class);
+        return $this->belongsTo(Spp::class, "id_spp", 'id_spp');
     }
 }
