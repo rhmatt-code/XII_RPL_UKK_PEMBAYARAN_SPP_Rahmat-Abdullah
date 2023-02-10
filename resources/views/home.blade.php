@@ -4,38 +4,38 @@
 
 @include('layouts.navbar')
 
-<div class="p-4 sm:ml-64">
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+<div class="p-4 sm:ml-64 bg-white">
+    <div class="p-4 border-2 border-gray-200 border rounded-lg bg-white dark:border-gray-700 transition-transform">
        <div class="grid grid-cols-2 md:grid-cols-4 ms:grid-cols-4 gap-4 mb-5">
-         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div class="flex mb-4 justify-center">
-               <svg class="flex-shrink h-8 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-               <h5 class="text-2xl h-8 font-bold tracking-tight text-gray-900 dark:text-white">Student</h5>
+         <a href="#" class="block max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <svg class="flex-shrink h-8 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+            <div class="text-center justify-center"> 
+               <h5 class="text-2xl h-8 tracking-tight text-gray-900 dark:text-white">Student</h5>
+               <p class="text-center font-bold text-gray-700 dark:text-gray-400">100</p>
             </div>
-            <p class="text-center font-bold text-gray-700 dark:text-gray-400">100</p>
          </a>
-         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div class="flex mb-4 justify-center">
-               <ion-icon class="flex-shrink h-8 dark:text-white" name="man-outline"></ion-icon>
-               <h5 class="text-2xl h-8 font-bold tracking-tight text-gray-900 dark:text-white">Man</h5>
+         <a href="#" class="block max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <ion-icon class="flex-shrink h-8 dark:text-white" name="man-outline"></ion-icon>
+            <div class="text-center justify-center">
+               <h5 class="text-2xl h-8 tracking-tight text-gray-900 dark:text-white">Man</h5>
+               <p class="text-center font-bold text-gray-700 dark:text-gray-400">100</p>
             </div>
-            <p class="text-center font-normal text-gray-700 dark:text-gray-400">100</p>
          </a>
-         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div class="flex mb-4 justify-center">
-               <ion-icon class="flex-shrink h-8 dark:text-white" name="woman-outline"></ion-icon>
-               <h5 class="text-2xl h-8 font-bold tracking-tight text-gray-900 dark:text-white">Woman</h5>
+         <a href="#" class="block max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <ion-icon class="flex-shrink h-8 dark:text-white" name="woman-outline"></ion-icon>
+            <div class="text-center justify-center">
+               <h5 class="text-2xl h-8 tracking-tight text-gray-900 dark:text-white">Woman</h5>
+               <p class="text-center font-bold text-gray-700 dark:text-gray-400">100</p>
             </div>
-            <p class="text-center font-normal text-gray-700 dark:text-gray-400">100</p>
          </a>
-         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <div class="flex mb-4 justify-center">
-               <svg class="flex-shrink h-8 dark:text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"></path>
-                </svg>
-               <h5 class="text-2xl h-8 font-bold tracking-tight text-gray-900 dark:text-white">Officer</h5>
+         <a href="#" class="block max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <svg class="flex-shrink h-8 dark:text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"></path>
+             </svg>
+            <div class="text-center justify-center">
+               <h5 class="text-2xl h-8 tracking-tight text-gray-900 dark:text-white">Petugas</h5>
+               <p class="text-center font-bold text-gray-700 dark:text-gray-400">100</p>
             </div>
-            <p class="text-center font-normal text-gray-700 dark:text-gray-400">100</p>
          </a>
        </div>
        <div class="flex flex-col h-72 rounded bg-gray-50 dark:bg-gray-800">      
