@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pembayaran', function (Blueprint $table) {
-            $table->integer('id_pembayaran');
-            $table->primary('id_pembayaran');
-            $table->integer('id_petugas');
+            $table->increments('id_pembayaran');
+            $table->unsignedInteger('id_petugas');
             $table->foreign('id_petugas')->references('id_petugas')->on('petugas');
             $table->string('nisn', 10);
             $table->foreign('nisn')->references('nisn')->on('siswa');

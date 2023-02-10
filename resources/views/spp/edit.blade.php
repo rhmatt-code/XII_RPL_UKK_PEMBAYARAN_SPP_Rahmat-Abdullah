@@ -8,7 +8,7 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="text-center mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Kelas</h3>
-                <form class="space-y-6" action="{{route('updateclass', $data->id_spp)}}" method="POST">
+                <form class="space-y-6" action="{{route('updatespp', $data->id_spp)}}" method="POST">
                     @csrf
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div>

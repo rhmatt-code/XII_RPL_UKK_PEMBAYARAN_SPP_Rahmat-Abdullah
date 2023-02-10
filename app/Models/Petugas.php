@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Petugas extends Model
 {
+    public $timestamps = false;
+    public $primaryKey = 'id_petugas';
     use HasFactory;
     protected $fillable = [
         'id_petugas',

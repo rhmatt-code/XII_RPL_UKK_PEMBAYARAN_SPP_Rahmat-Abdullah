@@ -19,15 +19,15 @@ use App\Http\Controllers\SppController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('home', 'show');
+    Route::get('home', 'show')->name('home');
 });
 
 Route::controller(StudentController::class)->group(function () {
-    Route::get('siswa', 'show');
+    Route::get('siswa', 'show')->name('siswa');
     Route::post('siswa/add', 'add')->name('addsiswa');
     Route::get('siswa/edit/{id}', 'edit')->name('editsiswa');
     Route::post('siswa/update/{id}', 'update')->name('updatesiswa');
@@ -35,11 +35,15 @@ Route::controller(StudentController::class)->group(function () {
 });
 
 Route::controller(OfficerController::class)->group(function () {
-    Route::get('officer', 'show');
+    Route::get('petugas', 'show')->name('petugas');
+    Route::post('petugas/add', 'add')->name('addpetugas');
+    Route::get('petugas/edit/{id}', 'edit')->name('editpetugas');
+    Route::post('petugas/update/{id}', 'update')->name('updatepetugas');
+    Route::get('petugas/delete/{id}', 'delete')->name('deletepetugas');
 });
 
 Route::controller(ClassController::class)->group(function () {
-    Route::get('class', 'show');
+    Route::get('class', 'show')->name('kelas');
     Route::post('class/add', 'addclass')->name('addclass');
     Route::get('edit/{id_kelas}', 'editclass')->name('editclass');
     Route::post('update/{id_kelas}', 'updateclass')->name('updateclass');
@@ -47,9 +51,9 @@ Route::controller(ClassController::class)->group(function () {
 });
 
 Route::controller(SppController::class)->group(function () {
-    Route::get('spp', 'show');
+    Route::get('spp', 'show')->name('spp');
     Route::post('spp/add', 'add')->name('addspp');
-    Route::get('edit/{id}', 'edit')->name('editspp');
-    Route::post('update/{id}', 'update')->name('updatespp');
-    Route::get('delete/{id}', 'delete')->name('deletespp');
+    Route::get('spp/edit/{id}', 'edit')->name('editspp');
+    Route::post('spp/update/{id}', 'update')->name('updatespp');
+    Route::get('spp/delete/{id}', 'delete')->name('deletespp');
 });

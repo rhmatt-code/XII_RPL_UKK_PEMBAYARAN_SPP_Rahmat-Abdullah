@@ -41,18 +41,18 @@ class SppController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $kelas = Spp::find($id);
-        $kelas->tahun = $request->tahun;
-        $kelas->nominal = $request->nominal;
+        $spp = Spp::find($id);
+        $spp->tahun = $request->tahun;
+        $spp->nominal = $request->nominal;
 
-        $kelas->update();
+        $spp->update();
 
         return redirect('spp');
     }
 
     public function delete($id)
     {
-        $kelas = Spp::find($id)->delete();
+        $spp = Spp::find($id)->delete();
 
         return redirect('spp');
     }
