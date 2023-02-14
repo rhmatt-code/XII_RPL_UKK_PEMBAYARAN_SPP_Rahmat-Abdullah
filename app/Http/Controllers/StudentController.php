@@ -28,7 +28,7 @@ class StudentController extends Controller
         $nisn = $request->nisn;
         $nis = $request->nis;
         if (Siswa::where([['nisn', '=', $nisn], ['nis', '=', $nis]])->exists()) {
-            return redirect('siswa')->with('message', 'Data sudah ada');
+            return redirect('siswa')->with(['message' => 'Data sudah ada']);
         } else {
             Siswa::create([
                 'nisn' => $request->nisn,
