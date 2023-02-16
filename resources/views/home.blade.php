@@ -4,9 +4,15 @@
 
 @include('layouts.navbar')
 
-<div class="p-4 sm:ml-64 bg-white">
+<div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-gray-200 border rounded-lg bg-white dark:border-gray-700 transition-transform">
-       <div class="grid grid-cols-2 md:grid-cols-4 ms:grid-cols-4 gap-4 mb-5">
+      <div class="flex">
+         <div class="">
+            <svg aria-hidden="true" class="w-11 h-11 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+         </div>
+         <p class="font-bold text-4xl mb-5 font-semibold text-left text-gray-900 dark:text-white ">Dashboard</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 ms:grid-cols-4 gap-4 mb-5">
          <a href="#" class="uk-animation-slide-right block max-w-sm p-3 h-20 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
          <div class="flex">   
             <svg class="mt-1 mr-1 h-10 text-yellow-700 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
