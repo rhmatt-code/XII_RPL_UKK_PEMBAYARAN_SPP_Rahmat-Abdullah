@@ -6,7 +6,7 @@
 </button>   
 <aside id="logo-sidebar" class="shadow-xl fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
    <div class="px-3 py-4 overflow-hidden bg-white dark:bg-gray-800">
-      @guest
+      @if(Auth::guest())
       <ul>
          <div class="px-8">
                <a href="{{route('home')}}" class="text-center ">
@@ -32,7 +32,7 @@
             </li>
          </div>
       </ul>
-      @else
+      @elseif(Auth::user()->level == 'admin')
       <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
          <li>
             <a href="{{route('home')}}" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
@@ -77,7 +77,7 @@
                <span class="flex-1 ml-3 whitespace-nowrap">SPP</span>
             </a>
          </li>
-      @endguest
+         @endif
       </ul>
    </div>
 </aside>

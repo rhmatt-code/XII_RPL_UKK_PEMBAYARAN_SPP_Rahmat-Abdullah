@@ -12,22 +12,21 @@ class LoginController extends Controller
 {
     public function store(Request $request)
     {
-        $data = Auth::guard('petugas')->attempt(
+        $data = Auth::attempt(
             [
-                'email' => $request->email,
+                'username' => $request->username,
                 'password' => $request->password
             ],
             $request->remember
         );
 
         if ($data) {
-            // $request->session()->regenerate();
-            // if (Auth::user()->level == 'admin') {
-            //     return redirect('home')->with('admin');
-            // } else if (Auth::user()->level == 'petugas') {
-            //     return redirect('home');
-            // }
-            var_dump('benar');
+            $request->session()->regenerate();
+            if(Auth::user()->level == 'admin'){
+                var_dump('ini admin');
+            }elseif(Auth::user()->level == 'petugas'){
+                var_dump('ini petugas');
+            }
         }
     }
     public function actionlogout()

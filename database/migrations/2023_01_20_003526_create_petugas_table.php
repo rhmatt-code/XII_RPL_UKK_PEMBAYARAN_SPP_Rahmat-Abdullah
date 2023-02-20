@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('petugas', function (Blueprint $table) {
             $table->increments('id_petugas');
             $table->string('username', 25);
-            $table->string('password', 32);
+            $table->string('password');
             $table->string('nama_petugas', 35);
             $table->enum('level', ['admin', 'petugas']);
         });
