@@ -22,11 +22,9 @@ class LoginController extends Controller
 
         if ($data) {
             $request->session()->regenerate();
-            if(Auth::user()->level == 'admin'){
-                var_dump('ini admin');
-            }elseif(Auth::user()->level == 'petugas'){
-                var_dump('ini petugas');
-            }
+            return redirect('home');
+        } else {
+            var_dump('salah');
         }
     }
     public function actionlogout()
