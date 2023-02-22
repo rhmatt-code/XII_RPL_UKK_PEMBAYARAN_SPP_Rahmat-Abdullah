@@ -1,15 +1,14 @@
-	
-		/*Overrides for Tailwind CSS */
-		
-		/*Form fields*/
-		.dataTables_wrapper .dataTables_length select {
-			border-radius: 5px; 			
-		}
+	/*Overrides for Tailwind CSS */
 
-		.dataTables_wrapper .dataTables_length .form-select-option {
-			color: black;	
-		}
+	/*Form fields*/
+	.dataTables_wrapper .dataTables_length select {
+		border-radius: 5px;
+	}
 
+	.dataTables_wrapper .dataTables_length .form-select-option {
+		color: black;
+	}
 
-		
-		
+	.isDisabled {
+		pointer-events: none;
+	}
