@@ -7,6 +7,8 @@ use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SppController;
+use App\Http\Controllers\TransaksiController;
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,5 +63,8 @@ Route::group(['middleware' => ['cekstatus']], function () {
         Route::get('spp/edit/{id}', 'edit')->name('editspp');
         Route::post('spp/update/{id}', 'update')->name('updatespp');
         Route::get('spp/delete/{id}', 'delete')->name('deletespp');
+    });
+    Route::controller(TransaksiController::class)->group(function () {
+        Route::get('transaksi', 'show')->name('transaksi');
     });
 });

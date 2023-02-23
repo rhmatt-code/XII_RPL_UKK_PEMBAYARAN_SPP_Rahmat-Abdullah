@@ -1,3 +1,4 @@
+@if($data->id_kelas = 0)
 <div id="delete-modal{{$data->id_kelas}}" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-md md:h-auto">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -16,3 +17,4 @@
         </div>
     </div>
 </div>
+@endif
