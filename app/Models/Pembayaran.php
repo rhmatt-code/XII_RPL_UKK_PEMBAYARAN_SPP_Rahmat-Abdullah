@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pembayaran extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable = [
         'id_pembayaran',
         'id_petugas',
@@ -19,4 +20,8 @@ class Pembayaran extends Model
         'jumlah_bayar',
     ];
     protected $table = "pembayaran";
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, "nisn", 'nisn');
+    }
 }

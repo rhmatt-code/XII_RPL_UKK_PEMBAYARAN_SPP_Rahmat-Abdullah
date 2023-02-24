@@ -11,10 +11,34 @@
       @if(Auth::guest())
       <ul class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
          <li>
-            <a href="{{route('home')}}" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
+            @if (request()->routeIs('home'))
+            <a class="flex items-center border-2  border-gray-200 shadow-sm p-2 text-base font-normal text-gray-900 bg-gray-200 rounded-lg dark:text-white" aria-disabled="true">
+            <div class="bg-white border-2 border-gray-200 shadow-sm rounded">
+               <svg aria-hidden="true" class="w-6 h-6 text-violet-700 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+            </div>
+               <span class="ml-3">Dashboard</span>
+            </a>
+            @else
+            <a href="{{route('home')}}" class="flex items-center border-2 border-gray-200 shadow-sm p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
                <svg aria-hidden="true" class="w-6 h-6 text-violet-700 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                <span class="ml-3">Dashboard</span>
             </a>
+            @endif
+         </li>
+         <li>
+            @if (request()->routeIs(''))
+            <a class="flex items-center border-2  border-gray-200 shadow-sm p-2 text-base font-normal text-gray-900 bg-gray-200 rounded-lg dark:text-white" aria-disabled="true">
+            <div class="bg-white border-2 border-gray-200 shadow-sm rounded">
+               <svg aria-hidden="true" class="w-6 h-6 text-violet-700 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+            </div>
+               <span class="ml-3">Cek NISN</span>
+            </a>
+            @else
+            <a href="{{route('home')}}" class="flex items-center border-2 border-gray-200 shadow-sm p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
+               <svg aria-hidden="true" class="w-6 h-6 text-violet-700 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+               <span class="ml-3">Cek NISN</span>
+            </a>
+            @endif
          </li>
       </ul>
       @elseif(Auth::user()->level == 'admin')
@@ -142,7 +166,7 @@
             @endif
          </li>
          <li>
-            @if (request()->routeIs('spp'))
+            @if (request()->routeIs('laporan'))
             <a class="flex items-center border-2 border-gray-200 shadow-sm p-2 text-base font-normal rounded-lg dark:text-white bg-gray-200">
             <div class="bg-white border-2 border-gray-200 shadow-sm rounded">
                <svg class="flex-shrink-0 w-6 h-6 text-violet-700 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -151,16 +175,16 @@
                   <path d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z"></path>
                 </svg>
             </div>
-               <span class="flex-1 ml-3 whitespace-nowrap">SPP</span>
+               <span class="flex-1 ml-3 whitespace-nowrap">Laporan</span>
             </a>
             @else
-            <a href="{{route('spp')}}" class="flex items-center border-2 border-gray-200 shadow-sm p-2 text-base font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
+            <a href="{{route('laporan')}}" class="flex items-center border-2 border-gray-200 shadow-sm p-2 text-base font-normal rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 ease-in-out">
                <svg class="flex-shrink-0 w-6 h-6 text-violet-700 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"></path>
                   <path clip-rule="evenodd" fill-rule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75zM8.25 9.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM18.75 9a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9.75a.75.75 0 00-.75-.75h-.008zM4.5 9.75A.75.75 0 015.25 9h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V9.75z"></path>
                   <path d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z"></path>
                 </svg>
-               <span class="flex-1 ml-3 whitespace-nowrap">SPP</span>
+               <span class="flex-1 ml-3 whitespace-nowrap">Laporan</span>
             </a>
             @endif
          </li>

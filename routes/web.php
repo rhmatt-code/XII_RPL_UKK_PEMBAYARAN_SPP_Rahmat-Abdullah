@@ -66,5 +66,8 @@ Route::group(['middleware' => ['cekstatus']], function () {
     });
     Route::controller(TransaksiController::class)->group(function () {
         Route::get('transaksi', 'show')->name('transaksi');
+        Route::get('search', 'search')->name('search');
+        Route::post('transaksi/store', 'store')->name('storetransaksi');
+        Route::get('laporan', 'laporan')->name('laporan');
     });
 });
