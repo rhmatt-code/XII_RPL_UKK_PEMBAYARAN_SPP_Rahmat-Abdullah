@@ -9,13 +9,9 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="text-center mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Siswa</h3>
-                <form class="space-y-6" action="{{route('editsiswa', $data->nisn)}}" method="POST">
+                <form class="space-y-6" action="{{route('updatesiswa', $data->nisn)}}" method="POST">
                     @csrf
                 <div class="grid md:grid-cols-2 md:gap-6">
-                    <div>
-                        <label for="nisn" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NISN</label>
-                        <input type="text" name="nisn" id="nis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" value="{{$data->nisn}}" required>
-                    </div>
                     <div>
                         <label for="nis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIS</label>
                         <input type="text" name="nis" id="nis" value="{{$data->nis}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
@@ -38,16 +34,17 @@
                         <label for="no_telp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No Telepon</label>
                         <input type="text" name="no_telp" id="no_telp" value="{{$data->no_telp}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                     </div>
-                    <div>
-                        <label for="spp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Tagihan SPP</label>
-                        <select id="spp" name="spp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            @if (count($spp) > 0)
-                                @foreach ($spp as $spp_single)
-                                <option value="{{$spp_single->id_spp}}">{{ $spp_single->tahun }} Tahun {{ currency_IDR($spp_single->nominal) }}</option>
-                                @endforeach
-                            @endif
-                        </select>
-                    </div>
+                    
+                </div>
+                <div>
+                    <label for="spp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Tagihan SPP</label>
+                    <select id="spp" name="spp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @if (count($spp) > 0)
+                            @foreach ($spp as $spp_single)
+                            <option value="{{$spp_single->id_spp}}">{{ $spp_single->tahun }} Tahun {{ currency_IDR($spp_single->nominal) }}</option>
+                            @endforeach
+                        @endif
+                    </select>
                 </div>
                     <div>
                         <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>

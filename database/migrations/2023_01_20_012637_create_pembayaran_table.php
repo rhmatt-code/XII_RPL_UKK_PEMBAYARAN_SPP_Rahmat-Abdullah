@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('bulan_dibayar', 8);
             $table->string('tahun_dibayar', 4);
             $table->unsignedInteger('id_spp');
-            $table->foreign('id_spp')->references('id_spp')->on('siswa');
+            $table->foreign('id_spp')->references('id_spp')->on('siswa')->onDelete('cascade');;
             $table->integer('jumlah_bayar');
         });
     }

@@ -79,6 +79,7 @@ Route::group(['middleware' => ['petugas']], function () {
         Route::get('transaksi', 'show')->name('transaksi');
         Route::get('search', 'search')->name('search');
         Route::post('transaksi/store', 'store')->name('storetransaksi');
+        Route::get('summary/{id}','cetak_pdf')->name('pdf');
         Route::get('laporan', 'laporan')->name('laporan');
     });
 });

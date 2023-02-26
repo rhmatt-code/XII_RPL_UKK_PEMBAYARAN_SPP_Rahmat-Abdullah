@@ -139,7 +139,7 @@
                             <span class="text-green-600"> Lunas</span> {{currency_IDR($total)}}
                             @else
                                 <span class="text-red-600"> Belum Lunas</span> {{ currency_IDR($total)}} 
-                                <p>Kurang:  {{currency_IDR($data->spp->nominal - $total)}} </p>
+                                <p>Kurang:  {{currency_IDR($data->spp->nominal * $data->spp->tahun - $total)}} </p>
                             @endif
                         @endforeach
                         </td>

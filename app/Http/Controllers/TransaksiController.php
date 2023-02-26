@@ -9,22 +9,22 @@ use App\Models\Siswa;
 use App\Models\Pembayaran;
 use App\Models\Kelas;
 use App\Models\Spp;
-use Carbon\Carbon;
+use PDF;
 
 
 class TransaksiController extends Controller
 {
     public function show()
     {
-        $siswa = Siswa::all();
-        return view('transaksi.transaksi', compact('siswa'));
+        $pembayaran = Pembayaran::with('siswa','spp')->get();
+
+        return view('transaksi.transaksi', compact('pembayaran'));
     }
 
     public function search(Request $request)
     {
         $searchTerm = $request->input('q');
-        $results = Siswa::select("nisn", "nama")->where('nisn', 'LIKE', "%$searchTerm%")->get();
-
+        $results = Siswa::with('spp')->where('nisn', 'LIKE', "%$searchTerm%")->get();
         return response()->json($results);
     }
     public function store(Request $request)
@@ -33,7 +33,7 @@ class TransaksiController extends Controller
         $nisn = $request->nisn;
         $spp = Siswa::where('nisn', $nisn)->get()->last();
 
-        Pembayaran::create([
+        $hasil = Pembayaran::create([
             'id_petugas' => Auth::user()->id_petugas,
             'nisn' => $request->nisn,
             'tgl_bayar' => $request->tgl_bayar,
@@ -43,10 +43,15 @@ class TransaksiController extends Controller
             'jumlah_bayar' => $request->jumlah_dibayar,
 
         ]);
-
-        return redirect('transaksi');
+        $id = $hasil->id;
+        return redirect("summary/$id");
     }
+    public function cetak_pdf($id){
+        $transaksi = Pembayaran::with('siswa', 'petugas','spp')->where('id_pembayaran', $id)->get()->last();
 
+        $pdf = PDF::loadview('summary', compact('transaksi'));
+    	return $pdf->download('summary.pdf');
+    }
     public function laporan()
     {
         $transaksi = Pembayaran::with('siswa')->get();

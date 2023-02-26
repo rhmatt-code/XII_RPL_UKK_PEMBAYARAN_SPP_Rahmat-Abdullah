@@ -53,7 +53,6 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $siswa = Siswa::find($id);
-        $siswa->nisn = $request->nisn;
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
         $siswa->id_kelas = $request->kelas;
