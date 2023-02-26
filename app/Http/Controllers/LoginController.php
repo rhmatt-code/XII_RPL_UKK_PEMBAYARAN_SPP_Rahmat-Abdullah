@@ -27,10 +27,10 @@ class LoginController extends Controller
             var_dump('salah');
         }
     }
-    public function actionlogout()
+    public function logout()
     {
         Auth::logout();
 
-        return redirect('login');
+        return redirect('home');
     }
 }

@@ -19,5 +19,12 @@ class Petugas extends Model
         'nama_petugas',
         'level',
     ];
+
+    protected $hidden = [
+        'password',
+    ];
+    protected $cast = [
+        'password' => 'encrypted',
+    ];
     protected $table = "petugas";
 }

@@ -27,9 +27,11 @@ Route::get('/', function () {
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('home', 'show')->name('home');
+    Route::get('ceknisn', 'nisn')->name('ceknisn');
 });
 Route::controller(LoginController::class)->group(function () {
     Route::post('store', 'store')->name('login');
+    Route::get('logout', 'logout')->name('logout');
 });
 
 Route::group(['middleware' => ['cekstatus']], function () {
@@ -71,3 +73,13 @@ Route::group(['middleware' => ['cekstatus']], function () {
         Route::get('laporan', 'laporan')->name('laporan');
     });
 });
+
+Route::group(['middleware' => ['petugas']], function () {
+    Route::controller(TransaksiController::class)->group(function () {
+        Route::get('transaksi', 'show')->name('transaksi');
+        Route::get('search', 'search')->name('search');
+        Route::post('transaksi/store', 'store')->name('storetransaksi');
+        Route::get('laporan', 'laporan')->name('laporan');
+    });
+});
+
