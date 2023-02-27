@@ -9,6 +9,7 @@ use App\Models\Siswa;
 use App\Models\Pembayaran;
 use App\Models\Kelas;
 use App\Models\Spp;
+use Carbon\Carbon;
 use PDF;
 
 
@@ -54,7 +55,14 @@ class TransaksiController extends Controller
     }
     public function laporan()
     {
-        $transaksi = Pembayaran::with('siswa')->get();
+        
+        if (request()->start_date || request()->end_date) {
+            $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
+            $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
+            $transaksi = Pembayaran::whereBetween('tgl_bayar',[$start_date,$end_date])->get();
+        } else {
+            $transaksi = Pembayaran::with('siswa')->get();
+        }
         return view('transaksi.laporan', compact('transaksi'));
     }
 }

@@ -3,11 +3,9 @@
 @section('title', 'Home')
 
 @include('layouts.navbar')
-
+@include('auth.login')
 <div class="p-4 sm:ml-64">
     <div class="p-4 bg-white dark:border-gray-700 transition-transform border-2 border-gray-200 rounded-lg">
-        
-        
         <form class="flex items-center" action="{{route('ceknisn')}}">   
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">

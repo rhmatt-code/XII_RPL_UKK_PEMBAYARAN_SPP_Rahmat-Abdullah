@@ -22,7 +22,7 @@ use Illuminate\Routing\RouteGroup;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('ceknisn');
 });
 
 Route::controller(HomeController::class)->group(function () {
@@ -35,6 +35,9 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::group(['middleware' => ['cekstatus']], function () {
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('home', 'show')->name('home');
+    });
     Route::controller(StudentController::class)->group(function () {
         Route::get('siswa', 'show')->name('siswa');
         Route::post('siswa/add', 'add')->name('addsiswa');
@@ -75,6 +78,9 @@ Route::group(['middleware' => ['cekstatus']], function () {
 });
 
 Route::group(['middleware' => ['petugas']], function () {
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('home', 'show')->name('home');
+    });
     Route::controller(TransaksiController::class)->group(function () {
         Route::get('transaksi', 'show')->name('transaksi');
         Route::get('search', 'search')->name('search');
