@@ -29,7 +29,7 @@
             <button>Filter</button>
         </form>
         <div class="relative overflow-x-auto h-auto w-auto ">
-            <table class="w-full text-sm text-left table text-gray-500 dark:text-gray-400" id="table">
+            <table class="display w-full text-sm text-left table text-gray-500 dark:text-gray-400" id="laporan">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -86,4 +86,5 @@
         </div>
     </div>
 </div>
+
 

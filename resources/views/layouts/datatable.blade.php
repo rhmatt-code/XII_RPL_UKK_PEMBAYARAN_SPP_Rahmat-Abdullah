@@ -8,7 +8,8 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <!-- UIkit CSS -->
     <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.3.4/css/buttons.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset ('css/style.css')}}"> 
     <link rel="stylesheet" href="{{asset ('css/uikit.css')}}">
     <link rel="stylesheet" href="{{asset ('css/bootstrap.css')}}"> 
@@ -21,17 +22,38 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>		
 	<!--Datatables -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" ></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" ></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js" ></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"></script>
     <script>
         // FOR DATATBLES PLUGIN
-        $(document).ready(function () {
-            $('#table').DataTable(
-            );
-        });
+        $(document).ready(function() {
+        $('#table').DataTable( {
+        } );
+    } );
 
         // FOR ALERT
+    </script>
+    <script>
+        const date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let currentDate = `${day}-${month}-${year}`;
+        $(document).ready(function() {
+                $('#laporan').DataTable( {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'print',
+                            title: 'Laporan Pembayaran SPP',
+                            messageTop: `Updated: ${currentDate}`,
+                        }
+                    ]
+                } );
+            } );
     </script>
     <script>
     
