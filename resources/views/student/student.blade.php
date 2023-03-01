@@ -112,7 +112,12 @@
             </table>
         </div>
     </div>
+    <footer class="p-4 mt-4 bg-white border-2 border-gray-200 rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+        <span class="text-sm sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Rahmat™</a>. 
+        </span>
+     </footer>
 </div>
+
 
 {{-- Modal Add Class --}}
 <div id="add-student" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full uk-animation-fade uk-animation-fast">

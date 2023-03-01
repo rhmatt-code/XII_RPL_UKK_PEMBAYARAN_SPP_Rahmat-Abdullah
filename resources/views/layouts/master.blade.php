@@ -15,6 +15,7 @@
 </head>
 <body>
 
+    
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/js/uikit.min.js"></script>
     <script>
         $('.select2').select2({

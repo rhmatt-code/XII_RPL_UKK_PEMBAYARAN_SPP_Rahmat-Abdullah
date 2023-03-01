@@ -22,7 +22,7 @@
              </svg>
             <div>
                <h5 class="text-base tracking-tight text-gray-900 dark:text-white">Siswa</h5>
-               <p class="font-bold text-base text-gray-700 dark:text-gray-400">100</p>
+               <p class="font-bold text-base text-gray-700 dark:text-gray-400">{{$siswa->count()}}</p>
             </div>
          </div>
          </a>
@@ -33,7 +33,7 @@
              </svg>
                <div >
                   <h5 class="text-base tracking-tight text-gray-900 dark:text-white">Kelas</h5>
-                  <p class="font-bold text-base text-gray-700 dark:text-gray-400">100</p>
+                  <p class="font-bold text-base text-gray-700 dark:text-gray-400">{{$kelas->count()}}</p>
                </div>
          </div>
          </a>
@@ -46,7 +46,7 @@
              </svg>
             <div>
                <h5 class="text-base tracking-tight text-gray-900 dark:text-white">SPP</h5>
-               <p class="font-bold text-base text-gray-700 dark:text-gray-400">100</p>
+               <p class="font-bold text-base text-gray-700 dark:text-gray-400">{{$spp->count()}}</p>
             </div>
          </div>
          </a>
@@ -58,7 +58,7 @@
              </svg>
             <div>
                <h5 class="text-base tracking-tight text-gray-900 dark:text-white">Petugas</h5>
-               <p class="text-base font-bold text-gray-700 dark:text-gray-400">100</p>
+               <p class="text-base font-bold text-gray-700 dark:text-gray-400">{{$petugas->count()}}</p>
             </div>
          </div>
          </a>
@@ -69,125 +69,42 @@
                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                         <th scope="col" class="px-6 py-3">
-                           Product name
+                           Nama Siswa
                         </th>
                         <th scope="col" class="px-6 py-3">
-                           Color
+                           Kelas dan Jurusan
                         </th>
                         <th scope="col" class="px-6 py-3">
-                           Category
+                           Tagihan SPP
                         </th>
                         <th scope="col" class="px-6 py-3">
-                           Price
+                           Alamat
                         </th>
                         <th scope="col" class="px-6 py-3">
-                           Action
+                           No Telepon
                         </th>
                   </tr>
                </thead>
                <tbody>
+               @foreach ($siswa as $data)   
                   <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           Apple MacBook Pro 17"
+                           {{$data->nama}}
                         </th>
                         <td class="px-6 py-4">
-                           Sliver
+                           {{$data->kelas->nama_kelas}} - {{$data->kelas->kompetensi_keahlian}}
                         </td>
                         <td class="px-6 py-4">
-                           Laptop
+                           {{$data->spp->tahun}} Tahun - {{currency_IDR($data->spp->nominal)}}
                         </td>
                         <td class="px-6 py-4">
-                           $2999
+                           {{$data->alamat}}
                         </td>
                         <td class="px-6 py-4">
-                           <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                           {{$data->no_telp}}
                         </td>
                   </tr>
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           Microsoft Surface Pro
-                        </th>
-                        <td class="px-6 py-4">
-                           White
-                        </td>
-                        <td class="px-6 py-4">
-                           Laptop PC
-                        </td>
-                        <td class="px-6 py-4">
-                           $1999
-                        </td>
-                        <td class="px-6 py-4">
-                           <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                  </tr>
-                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Microsoft Surface Pro
-                     </th>
-                     <td class="px-6 py-4">
-                        White
-                     </td>
-                     <td class="px-6 py-4">
-                        Laptop PC
-                     </td>
-                     <td class="px-6 py-4">
-                        $1999
-                     </td>
-                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                     </td>
-               </tr>
-                  <tr class="bg-white dark:bg-gray-800">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                           Magic Mouse 2
-                        </th>
-                        <td class="px-6 py-4">
-                           Black
-                        </td>
-                        <td class="px-6 py-4">
-                           Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                           $99
-                        </td>
-                        <td class="px-6 py-4">
-                           <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        </td>
-                  </tr>
-                  <tr class="bg-white dark:bg-gray-800">
-                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Magic Mouse 2
-                     </th>
-                     <td class="px-6 py-4">
-                        Black
-                     </td>
-                     <td class="px-6 py-4">
-                        Accessories
-                     </td>
-                     <td class="px-6 py-4">
-                        $99
-                     </td>
-                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                     </td>
-               </tr>
-               <tr class="bg-white dark:bg-gray-800">
-                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                     Magic Mouse 2
-                  </th>
-                  <td class="px-6 py-4">
-                     Black
-                  </td>
-                  <td class="px-6 py-4">
-                     Accessories
-                  </td>
-                  <td class="px-6 py-4">
-                     $99
-                  </td>
-                  <td class="px-6 py-4">
-                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                  </td>
-            </tr>
+               @endforeach
                </tbody>
             </table>
          </div>
@@ -197,7 +114,6 @@
       <span class="text-sm sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Rahmat™</a>. 
       </span>
    </footer>
-   
 </div>
 
 @include('auth.login') 

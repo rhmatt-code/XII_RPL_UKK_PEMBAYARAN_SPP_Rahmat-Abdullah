@@ -8,14 +8,18 @@ use App\Models\Siswa;
 use App\Models\Pembayaran;
 use App\Models\Kelas;
 use App\Models\Spp;
+use App\Models\Petugas;
 use Carbon\Carbon;
 
 class HomeController extends Controller
 {
     public function show()
     {
-        $siswa = siswa::all();
-        return view('home', compact('siswa'));
+        $siswa = siswa::with('kelas','spp')->get();
+        $kelas = kelas::all();
+        $spp = spp::all();
+        $petugas = petugas::all();
+        return view('home', compact('siswa','kelas','spp','petugas'));
     }
 
     public function nisn(Request $request){
