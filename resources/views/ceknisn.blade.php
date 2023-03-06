@@ -6,6 +6,11 @@
 @include('auth.login')
 <div class="p-4 sm:ml-64">
     <div class="p-4 bg-white dark:border-gray-700 transition-transform border-2 border-gray-200 rounded-lg">
+        <caption class="p-5 text-lg text-bold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+            <div class="flex">
+                <p class="text-4xl mb-5 text-left  text-gray-900 dark:text-white ">NISN & Tagihan SPP</p>
+            </div>
+        </caption>
         <form class="flex items-center" action="{{route('ceknisn')}}">   
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">

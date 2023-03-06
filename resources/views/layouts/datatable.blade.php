@@ -15,9 +15,13 @@
     <link rel="stylesheet" href="{{secure_asset ('css/uikit.css')}}">
     <link rel="stylesheet" href="{{secure_asset ('css/bootstrap.css')}}"> 
 
+    <style>
+    </style>
     
 </head>
 <body class="">
+
+    @yield('content');
     
     <!-- jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>		
@@ -31,10 +35,9 @@
     <script src="{{secure_asset ('build/assets/app-abd40105.js')}}"></script>
     <script>
         // FOR DATATBLES PLUGIN
-        $(document).ready(function() {
-        $('#table').DataTable( {
-        } );
-    } );
+        document.addEventListener('DOMContentLoaded', function () {
+            let table = new DataTable('#table');
+        });
 
         // FOR ALERT
     </script>
@@ -44,7 +47,7 @@
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
         let currentDate = `${day}-${month}-${year}`;
-        $(document).ready(function() {
+            $(document).ready(function() {
                 $('#laporan').DataTable( {
                     dom: 'Bfrtip',
                     buttons: [
@@ -58,7 +61,6 @@
             } );
     </script>
     <script>
-    
     </script>
        
 </body>

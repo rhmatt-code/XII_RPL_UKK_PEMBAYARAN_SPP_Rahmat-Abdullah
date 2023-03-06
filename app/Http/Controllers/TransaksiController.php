@@ -65,4 +65,12 @@ class TransaksiController extends Controller
         }
         return view('transaksi.laporan', compact('transaksi'));
     }
+    public function print(){
+        $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
+        $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
+        $transaksi = Pembayaran::whereBetween('tgl_bayar',[$start_date,$end_date])->get();
+
+        return view('transaksi.print', compact('transaksi'));
+
+    }
 }

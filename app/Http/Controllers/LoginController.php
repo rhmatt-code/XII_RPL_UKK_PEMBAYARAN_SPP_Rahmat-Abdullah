@@ -24,7 +24,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect('home');
         } else {
-            var_dump('salah');
+            return redirect('/');
         }
     }
     public function logout()

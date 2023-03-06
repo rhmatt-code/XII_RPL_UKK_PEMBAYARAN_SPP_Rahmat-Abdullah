@@ -73,7 +73,9 @@ Route::group(['middleware' => ['cekstatus']], function () {
         Route::get('transaksi', 'show')->name('transaksi');
         Route::get('search', 'search')->name('search');
         Route::post('transaksi/store', 'store')->name('storetransaksi');
+        Route::get('summary/{id}','cetak_pdf')->name('pdf');
         Route::get('laporan', 'laporan')->name('laporan');
+        Route::get('laporan/print', 'print')->name('print');
     });
 });
 
@@ -87,6 +89,7 @@ Route::group(['middleware' => ['petugas']], function () {
         Route::post('transaksi/store', 'store')->name('storetransaksi');
         Route::get('summary/{id}','cetak_pdf')->name('pdf');
         Route::get('laporan', 'laporan')->name('laporan');
+        Route::get('laporan/print', 'print')->name('print');
     });
 });
 
